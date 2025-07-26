@@ -1,0 +1,308 @@
+/* General Body and Container Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Full viewport height */
+    margin: 0;
+    color: #333;
+    /* Dark gray text */
+    line-height: 1.6;
+}
+
+.todo-container {
+    background-color: #ffffff;
+    /* White background for the main container */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+    width: 100%;
+    max-width: 550px;
+    /* Maximum width for the container */
+    box-sizing: border-box;
+    /* Include padding/border in element's total width */
+    margin: 20px;
+    /* Ensures margin on smaller screens */
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    /* Dark blue-gray heading */
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+/* Input Section Styling */
+.input-section {
+    display: flex;
+    /* Use Flexbox for horizontal layout */
+    gap: 10px;
+    /* Space between input and button */
+    margin-bottom: 25px;
+}
+
+#taskInput {
+    flex-grow: 1;
+    /* Allows input to take available space */
+    padding: 12px 18px;
+    border: 1px solid #ced4da;
+    /* Light gray border */
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#taskInput:focus {
+    border-color: #007bff;
+    /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    /* Subtle focus glow */
+    outline: none;
+    /* Remove default outline */
+}
+
+#addTaskBtn {
+    background-color: #007bff;
+    /* Primary blue button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    /* Indicate clickable element */
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#addTaskBtn:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+#addTaskBtn:active {
+    transform: translateY(1px);
+    /* Slight press effect on click */
+}
+
+/* Task List Styling */
+#taskList {
+    list-style: none;
+    /* Remove default list bullets */
+    padding: 0;
+}
+
+#taskList li {
+    display: flex;
+    /* Flexbox for task item layout */
+    align-items: center;
+    /* Vertically align items */
+    background-color: #f8f9fa;
+    /* Very light gray for task background */
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    /* Subtle border */
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    /* Smooth transitions */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Soft inner shadow */
+}
+
+#taskList li.completed {
+    background-color: #e2f0e6;
+    /* Lighter green for completed tasks */
+    text-decoration: line-through;
+    /* Strikethrough text */
+    color: #888;
+    /* Faded text color */
+    opacity: 0.8;
+    /* Slightly transparent */
+}
+
+#taskList li input[type="checkbox"] {
+    margin-right: 15px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    /* Prevent checkbox from shrinking */
+}
+
+#taskList li span.task-text {
+    flex-grow: 1;
+    /* Task text takes available space */
+    word-break: break-word;
+    /* Prevents long words from overflowing */
+    font-size: 1.05em;
+    color: #495057;
+    /* Darker text color */
+}
+
+#taskList li.completed span.task-text {
+    color: #6c757d;
+    /* Slightly darker grey for completed text */
+}
+
+#taskList li span.task-date {
+    font-size: 0.75em;
+    color: #99aab5;
+    /* Faded date color */
+    margin-left: 15px;
+    white-space: nowrap;
+    /* Keep date on a single line */
+    flex-shrink: 0;
+    /* Prevent date from shrinking */
+}
+
+#taskList li .delete-btn {
+    background-color: #dc3545;
+    /* Red delete button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-left: 20px;
+    flex-shrink: 0;
+    /* Prevent button from shrinking */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#taskList li .delete-btn:hover {
+    background-color: #c82333;
+    /* Darker red on hover */
+}
+
+#taskList li .delete-btn:active {
+    transform: translateY(1px);
+    /* Slight press effect */
+}
+
+/* Filter Section Styling */
+.filters {
+    text-align: center;
+    margin-bottom: 25px;
+    display: flex;
+    /* Flexbox for filter buttons */
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
+    gap: 10px;
+    /* Space between buttons */
+}
+
+.filters button {
+    background-color: #e9ecef;
+    /* Light gray background for inactive filters */
+    color: #495057;
+    border: 1px solid #dee2e6;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filters button.active {
+    background-color: #007bff;
+    /* Primary blue for active filter */
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+    /* Subtle shadow for active state */
+}
+
+.filters button:hover:not(.active) {
+    background-color: #d6dbe0;
+    border-color: #caced4;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 600px) {
+    .todo-container {
+        padding: 20px;
+        border-radius: 0;
+        /* Full width on very small screens, no corner radius */
+        box-shadow: none;
+        /* Remove shadow on mobile for cleaner look */
+        margin: 0;
+        min-height: 100vh;
+        /* Ensure full height on mobile */
+    }
+
+    .input-section {
+        flex-direction: column;
+        /* Stack input and button vertically */
+    }
+
+    #addTaskBtn {
+        width: 100%;
+        /* Full width button */
+    }
+
+    .filters {
+        justify-content: space-around;
+        /* Distribute buttons evenly */
+        gap: 5px;
+        /* Reduce gap between buttons */
+    }
+
+    .filters button {
+        flex-basis: auto;
+        /* Let buttons size naturally */
+        min-width: 100px;
+        /* Ensure minimum width for touch targets */
+        padding: 8px 12px;
+    }
+
+    #taskList li {
+        flex-wrap: wrap;
+        /* Allow elements within task item to wrap */
+        justify-content: flex-start;
+        /* Align items to the start */
+        padding: 12px 15px;
+    }
+
+    #taskList li input[type="checkbox"] {
+        order: 1;
+        /* Position checkbox first */
+    }
+
+    #taskList li span.task-text {
+        order: 2;
+        flex-basis: calc(100% - 60px);
+        /* Adjust width to account for checkbox and margin */
+        margin-left: 0;
+        /* Remove left margin from span */
+        padding-left: 10px;
+        /* Add some padding if needed */
+    }
+
+    #taskList li span.task-date {
+        order: 4;
+        /* Position date after text and button, on a new line */
+        width: 100%;
+        /* Full width for date */
+        text-align: right;
+        margin-top: 8px;
+        font-size: 0.7em;
+    }
+
+    #taskList li .delete-btn {
+        order: 3;
+        /* Position delete button after text */
+        margin-left: auto;
+        /* Push button to the right */
+    }
+}
